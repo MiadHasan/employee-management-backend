@@ -22,7 +22,6 @@ export const getUsers = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
   const userId = req.params.id;
-  console.log(userId)
   try {
     const deletedUser = await User.findByIdAndDelete(userId);
     res.status(200).json(deletedUser);
@@ -52,3 +51,13 @@ export const updateUser = async (req, res) => {
     res.status(404).json(err);
   }
 };
+
+export const getUserById = async (req, res) => {
+  const userId = req.params.id;
+  try {
+    const user = await User.findById(userId)
+    res.status(200).json(user)
+  } catch (err) {
+    res.status(404).json(err)
+  }
+}
