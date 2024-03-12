@@ -19,3 +19,14 @@ export const getUsers = async (req, res) => {
     res.status(404).json(err);
   }
 };
+
+export const deleteUser = async (req, res) => {
+  const userId = req.params.id;
+  console.log(userId)
+  try {
+    const deletedUser = await User.findByIdAndDelete(userId);
+    res.status(200).json(deletedUser);
+  } catch (err) {
+    res.status(404).json(err);
+  }
+};
