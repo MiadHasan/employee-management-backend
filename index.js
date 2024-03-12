@@ -11,11 +11,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use("/users", userRoutes);
 
-
-app.get("/", (req, res) => {
-  res.send("hello")
-})
-
 const port = process.env.PORT;
 
 mongooose
